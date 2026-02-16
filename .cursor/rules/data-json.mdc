@@ -1,0 +1,47 @@
+---
+description: Data lives in JSON only; CRUD with high care; support export/import; documentation-first
+globs: "**/*.ts,**/*.tsx,lib/**/*,store/**/*,app/**/*"
+alwaysApply: false
+---
+
+# Data: JSON Only, CRUD Care, Export/Import
+
+## Product Context
+
+MasterPlan helps plan and run **educational events**. Target users: event planners and teachers. A **date-based panel** supports planning. All persistent data is in **JSON files**; there is no database.
+
+## Rules
+
+1. **Single source: JSON**
+   - Do not introduce a database (PostgreSQL, SQLite, MongoDB, etc.) or any other persistent store.
+   - All application data is read from and written to project JSON files. Document where these files live and their schema.
+
+2. **CRUD with very high care**
+   - Create, read, update, delete on JSON data must be implemented with strong attention to:
+     - **Validation** before writing (shape, required fields, types).
+     - **Error handling** (file missing, parse errors, write failures).
+     - **Avoiding corruption** (no partial writes; consider atomic write patterns where applicable).
+     - **Concurrency** (if multiple writes are possible, document and handle conflicts or locking).
+   - When adding or changing CRUD, update [docs/data.md](../../docs/data.md) and any schema/format docs.
+
+3. **Export and import**
+   - **Export:** The project must support exporting data when needed (e.g. events, schedules). Document the export format (e.g. JSON, CSV) and what is included.
+   - **Import:** The project must support importing data (e.g. initial load, migration). Validate imported data; document the expected format and behavior (overwrite, merge, or reject).
+   - Design data shapes and file layout with export/import in mind from the start.
+
+4. **Documentation-first**
+   - Document data file locations, schemas, and CRUD contracts. When adding or changing data or file layout, update the relevant docs (e.g. docs/data.md, docs/architecture.md).
+
+## Do
+
+- Read and write only to the project JSON files for persistence.
+- Validate inputs before any write; handle and log errors; avoid partial or corrupted files.
+- Document export/import formats and behavior.
+- Update docs when introducing or changing data structures or file locations.
+
+## Don't
+
+- Add a database or external persistence layer.
+- Implement CRUD without validation and error handling.
+- Leave data file locations or schemas undocumented.
+- Ignore export/import when designing new data or features.

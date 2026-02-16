@@ -34,10 +34,12 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Documentation
 
 - [docs/README.md](docs/README.md) – Index of project docs
-- [docs/architecture.md](docs/architecture.md) – High-level architecture (placeholder)
-- [docs/development.md](docs/development.md) – Setup and conventions (placeholder)
+- [docs/product-overview.md](docs/product-overview.md) – Product purpose: educational event planning; planners and teachers; date-based panel
+- [docs/data.md](docs/data.md) – Data strategy: JSON only; CRUD with high care; export/import; documentation-first
+- [docs/architecture.md](docs/architecture.md) – High-level architecture and data flow
+- [docs/development.md](docs/development.md) – Setup, conventions, and data-handling
 - [docs/samples-guide.md](docs/samples-guide.md) – How to use the samples folder for UI development
 
 ## Agent and Rules
 
-See [AGENTS.md](AGENTS.md) for the Cursor agent role and sources of truth. Project rules live in `.cursor/rules/` (English-only, full-stack agent, samples-based UI, RTL/Farsi).
+See [AGENTS.md](AGENTS.md) for the Cursor agent role and sources of truth. Project rules live in `.cursor/rules/` (English-only, full-stack agent, samples-based UI, RTL/Farsi, JSON-only data with careful CRUD and export/import).
