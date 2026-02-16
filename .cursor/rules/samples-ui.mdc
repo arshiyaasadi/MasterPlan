@@ -1,0 +1,33 @@
+---
+description: Use samples/ as reference for typography, UI/UX, and components; adapt to TS and RTL
+globs: "**/*.tsx,**/*.jsx"
+alwaysApply: false
+---
+
+# Samples as UI Reference
+
+Use the [samples/](samples/) folder as the **single reference** for typography, UI/UX, and component patterns. Adapt to TypeScript and RTL; do not invent new patterns that conflict with samples.
+
+## Reference Areas
+
+- **samples/marketing/** – Heroes, testimonials, pricing, newsletter, logo clouds, stats, team sections
+- **samples/ecommerce/** – Product lists, checkout, carts, navigation, reviews
+- **samples/application-ui/** – Navbars, sidebars, tabs, modals, drawers, command palettes
+
+## Do
+
+- **Typography:** Reuse Tailwind patterns from samples (e.g. `text-sm/6`, `font-semibold`, `text-base/7`, heading scales).
+- **Layout:** Reuse container and spacing (e.g. `max-w-7xl`, `px-4 sm:px-6 lg:px-8`, `mx-auto`).
+- **Structure:** Mirror component structure (nav, hero, cards, lists); implement in TypeScript with proper types.
+- **RTL:** Swap LTR-specific classes for RTL-aware ones (`ms-`/`me-`, `start`/`end`, `ps-`/`pe-`); flip `left`/`right` as needed.
+
+## Don't
+
+- Copy-paste sample JSX unchanged (samples are JSX and LTR).
+- Introduce typography or layout patterns that diverge from samples without reason.
+- Use different spacing or breakpoint patterns than in samples unless the design explicitly requires it.
+
+## Example (conceptual)
+
+Sample uses: `text-sm/6 font-semibold text-gray-900`, `border-l-4 border-indigo-500 pl-3 pr-4`.  
+In RTL TSX: keep typography; use `border-s-4 border-indigo-500 ps-3 pe-4` (or equivalent logical properties) so the accent edge follows RTL.

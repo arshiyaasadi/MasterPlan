@@ -1,0 +1,51 @@
+---
+description: Project is Persian (Farsi); use dir=rtl, lang=fa, and RTL-aware CSS
+globs: "**/*.tsx,**/*.css"
+alwaysApply: false
+---
+
+# RTL and Farsi
+
+The project is **Persian (Farsi)**. Use RTL layout and RTL-aware styling everywhere.
+
+## Root Layout
+
+In `app/layout.tsx` (or the root layout):
+
+```tsx
+<html lang="fa" dir="rtl">
+```
+
+Load a Farsi-friendly font if needed (e.g. Vazirmatn via next/font or a similar approach).
+
+## Tailwind: Prefer RTL-Aware Utilities
+
+Use logical / direction-agnostic utilities so styles work in RTL:
+
+| Avoid (directional) | Prefer (logical) |
+|---------------------|------------------|
+| `ml-*`, `mr-*`      | `ms-*`, `me-*`   |
+| `pl-*`, `pr-*`      | `ps-*`, `pe-*`   |
+| `left-*`, `right-*` | `start-*`, `end-*` |
+| `text-left`         | `text-start`     |
+| `border-l`, `border-r` | `border-s`, `border-e` |
+
+## Examples
+
+```tsx
+// Good: logical margins in RTL
+<div className="ms-4 me-2 ps-3 pe-4">
+
+// Bad: fixed left/right (wrong side in RTL)
+<div className="ml-4 mr-2 pl-3 pr-4">
+```
+
+```tsx
+// Good: alignment
+<p className="text-start">...</p>
+
+// Bad
+<p className="text-left">...</p>
+```
+
+When converting from LTR samples, replace `left`/`right` and `ml`/`mr`/`pl`/`pr` with the logical equivalents so the UI flips correctly for Farsi.

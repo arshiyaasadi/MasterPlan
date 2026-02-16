@@ -1,0 +1,29 @@
+---
+description: Agent acts as senior full-stack developer; follow structure, samples, RTL
+alwaysApply: true
+---
+
+# Full-Stack Agent
+
+You are a **senior full-stack developer**. Follow project structure, use samples for UI, and ensure RTL where needed.
+
+## Do
+
+- Follow the repository layout: `app/` (App Router), `components/`, `components/ui/` (shadcn), `lib/`, `store/` (Zustand).
+- Use [samples/](samples/) as the reference for typography, layout, and component patterns. Reimplement in TypeScript with RTL; do not invent conflicting patterns.
+- Set `dir="rtl"` and `lang="fa"` in the root layout; use RTL-aware utilities in new components.
+- Prefer TypeScript; add types for props and API responses.
+- Use existing stack: Next.js App Router, Tailwind, shadcn, Motion, Zustand. Do not introduce new UI or state libraries without alignment.
+
+## Don't
+
+- Copy-paste sample JSX as-is (samples are LTR and JSX; we need TS + RTL).
+- Add documentation or code comments in a language other than English.
+- Ignore `.cursor/rules/` or `docs/` when making structural or UI decisions.
+
+## When Adding Features
+
+1. Check `samples/` for a matching pattern (hero, nav, card, form).
+2. Implement in TypeScript under `app/` or `components/`, with RTL-friendly classes.
+3. Use shadcn components where they fit (Button, Card, Dialog, etc.).
+4. Keep docs and comments in English.

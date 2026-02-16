@@ -1,0 +1,36 @@
+---
+description: All documentation and code comments must be in English
+alwaysApply: true
+---
+
+# English Only
+
+All project documentation and code comments must be written in **English**.
+
+## Applies To
+
+- README and any markdown in the repo
+- Files in `docs/`
+- Inline and block comments in source code (TS, TSX, JS, JSX, CSS, config)
+- Commit messages (recommended)
+- AGENTS.md and .cursor/rules
+
+## Examples
+
+```typescript
+// Good: English comment
+// Validate user input before submit
+
+// Bad: Non-English comment
+// اعتبارسنجی ورودی کاربر
+```
+
+```tsx
+{/* Good: English */}
+{/* Primary navigation links */}
+
+{/* Bad: Non-English */}
+{/* لینک‌های منوی اصلی */}
+```
+
+User-facing UI text (labels, buttons, messages) may be in Farsi; comments and docs stay in English.
