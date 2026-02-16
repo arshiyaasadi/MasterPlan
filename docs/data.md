@@ -11,6 +11,40 @@ The project **does not use a dedicated database**. All persistent data lives in 
 3. **Documentation-first** – The project prioritizes documentation. Data structures, file locations, and CRUD contracts must be documented. Export and import behavior must be clear and reliable.
 4. **Export and import** – Exporting data (for backup, reporting, or integration) and importing data (for setup or migration) are important. Design data shapes and file formats with export/import in mind.
 
+## Data Files
+
+### courses.json
+
+**Path:** `data/courses.json`
+
+**Purpose:** List of courses (educational events) and their setup, session dates, times, and per-session details (including file metadata).
+
+**Schema:** `{ "courses": Course[] }` where each **Course** has:
+
+- **id** (string), **name** (string)
+- **description**? (string), **hoursPerSession**? (number), **durationDays**? (number)
+- **selectedDates**? (string[]): Jalali date keys `YYYY-MM-DD` for session days (from Jalali calendar). Total hours = hoursPerSession × durationDays.
+- **sessionTimes**? (Record<string, string>): `dateKey` → `"HH:mm"` (session start time).
+- **sessionDetails**? (Record<string, SessionDetail>): `dateKey` → **SessionDetail**:
+  - **title**? (string), **description**? (string)
+  - **files**? (**SessionFile**[]): **id** (string), **savedName** (string, unique on disk), **originalName** (string), **description**? (string). Binary files live under `data/course-sessions/<courseId>/`; only metadata is in JSON.
+
+**API:** `GET /api/courses`, `POST /api/courses` (add by name), `PATCH /api/courses/[id]` (update name, description, hoursPerSession, durationDays, selectedDates, sessionTimes, sessionDetails).
+
+### File storage: course-sessions
+
+**Path:** `data/course-sessions/<courseId>/`
+
+**Purpose:** Session file uploads for a course. One folder per course. Files are stored with unique names (e.g. `<id>.<ext>`). Metadata (originalName, description) lives in `courses.json` under `course.sessionDetails[dateKey].files`. API: `POST /api/courses/[id]/session-files` (upload), `GET /api/courses/[id]/session-files/[fileId]` (download), `DELETE /api/courses/[id]/session-files/[fileId]` (remove file and metadata).
+
+### events.json
+
+**Path:** `data/events.json`
+
+**Purpose:** Calendar events (legacy/general). Schema: `{ "events": [ { "id", "date" (Jalali YYYY-MM-DD), "title", "description"?, "time"?, "courseId"? } ] }`. API: `GET /api/events`, `POST /api/events`, `PATCH /api/events/[id]`, `DELETE /api/events/[id]`.
+
+**Note:** The main course/session flow does **not** use events. The Jalali calendar uses `course.selectedDates` and `course.sessionDetails` for the selected course. events.json and the events API exist for reference or future use; they are not used by the current calendar UI.
+
 ## Expectations (No Code Here)
 
 - **Location and shape** – Where JSON files live and their schema will be defined as the app is built. Docs and rules refer to “the project JSON” as the single data source.

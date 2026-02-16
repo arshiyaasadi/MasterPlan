@@ -31,6 +31,7 @@ MasterPlan helps plan and run **educational events**. Target users: event planne
 
 4. **Documentation-first**
    - Document data file locations, schemas, and CRUD contracts. When adding or changing data or file layout, update the relevant docs (e.g. docs/data.md, docs/architecture.md).
+   - Current file layout and schema: see [docs/data.md](../../docs/data.md) (courses.json, course-sessions folder, events.json).
 
 ## Do
 

@@ -28,16 +28,18 @@ Open [http://localhost:3000](http://localhost:3000).
 - **`components/ui/`** – shadcn/ui components
 - **`lib/`** – Utilities and shared logic
 - **`store/`** – Zustand stores
+- **`data/`** – JSON data files (`courses.json`, `events.json`) and `data/course-sessions/<courseId>/` for session file uploads
 - **`samples/`** – Reference UI components (Tailwind-based); use as the source for typography and UX patterns
 - **`docs/`** – Project documentation (architecture, development, samples guide)
 
 ## Documentation
 
 - [docs/README.md](docs/README.md) – Index of project docs
-- [docs/product-overview.md](docs/product-overview.md) – Product purpose: educational event planning; planners and teachers; date-based panel
-- [docs/data.md](docs/data.md) – Data strategy: JSON only; CRUD with high care; export/import; documentation-first
-- [docs/architecture.md](docs/architecture.md) – High-level architecture and data flow
-- [docs/development.md](docs/development.md) – Setup, conventions, and data-handling
+- [docs/product-overview.md](docs/product-overview.md) – Product purpose: educational event planning; planners and teachers; course-centric, date-based panel
+- [docs/business-context.md](docs/business-context.md) – Entities (Course, Session, SessionDetail, SessionFile) and user flow / journey
+- [docs/data.md](docs/data.md) – Data strategy: JSON only; CRUD with high care; export/import; schema (courses.json, course-sessions, events.json)
+- [docs/architecture.md](docs/architecture.md) – High-level architecture, APIs, and data flow
+- [docs/development.md](docs/development.md) – Setup, data modules, API list, conventions, and data-handling
 - [docs/samples-guide.md](docs/samples-guide.md) – How to use the samples folder for UI development
 
 ## Agent and Rules

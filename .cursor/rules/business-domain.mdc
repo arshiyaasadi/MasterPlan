@@ -1,0 +1,16 @@
+---
+description: Align with project entities and user flow; use consistent terms (Course, Session, SessionDetail, SessionFile; dateKey; Jalali)
+globs: "**/*.ts,**/*.tsx,docs/**/*.md"
+alwaysApply: false
+---
+
+# Business Domain
+
+Domain entities and user flow are described in [docs/business-context.md](../../docs/business-context.md).
+
+When adding or changing features that touch courses or sessions, keep naming and behavior consistent with that doc:
+
+- **Session** = one date in a course (identified by courseId + Jalali dateKey).
+- **sessionDetails** is keyed by Jalali date key (`YYYY-MM-DD`).
+- Use **Course**, **SessionDetail**, **SessionFile** as the canonical type names; refer to sessions as "session" (one date) not a separate entity table.
+- Jalali dates: use the project helpers in `lib/jalali.ts` and the `dateKey` format (`YYYY-MM-DD`) for storage and API.

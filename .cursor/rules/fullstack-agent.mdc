@@ -14,7 +14,7 @@ You are a **senior full-stack developer**. Follow project structure, use samples
 - Set `dir="rtl"` and `lang="fa"` in the root layout; use RTL-aware utilities in new components.
 - Prefer TypeScript; add types for props and API responses.
 - Use existing stack: Next.js App Router, Tailwind, shadcn, Motion, Zustand. Do not introduce new UI or state libraries without alignment.
-- Align features with product: educational event planning, date-based panel, planners and teachers. Persist data only in JSON files; no database. See `docs/product-overview.md` and `docs/data.md`; follow `.cursor/rules/data-json.mdc` for CRUD and export/import.
+- Align features with product: educational event planning, date-based panel, planners and teachers. Persist data only in JSON files; no database. See `docs/product-overview.md` and `docs/data.md`; follow `.cursor/rules/data-json.mdc` for CRUD and export/import. When adding features that affect courses or sessions, keep naming and behavior consistent with `docs/business-context.md` (entities and user flow).
 
 ## Don't
 

@@ -11,9 +11,12 @@ MasterPlan helps users **plan and run educational events**. The product supports
 
 ## Core Value
 
-- A **date-based panel** to help planners and teachers plan events, see timelines, and manage event-related data.
+- The app is **course-centric**: a course has a list of session dates; each session can have a start time, title, description, and attached files. The main flow is: plan course → set session dates in the calendar → set times and per-session details → view overview (progress, next session, completion).
+- A **date-based panel** helps planners and teachers plan events, see timelines, and manage event-related data.
 - All application data is stored in **JSON files** (no external database). The app reads from and writes to these files with strict care.
 - The project is **documentation-first**: exporting data when needed and importing data are first-class features. Reliable import/export is essential.
+
+For **domain entities** (Course, Session, SessionDetail, SessionFile) and the **user flow / journey**, see [business-context.md](business-context.md).
 
 ## Out of Scope (for now)
 

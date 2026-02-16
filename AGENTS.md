@@ -18,8 +18,9 @@ MasterPlan helps users **plan and run educational events**. Target users: event 
 
 ## Sources of Truth
 
+- **Entities and user flow:** [docs/business-context.md](docs/business-context.md) – Course, Session, SessionDetail, SessionFile; user journey and where they live in code.
 - **`.cursor/rules/`** – Cursor rule files (`.mdc`) that define coding standards, UI conventions, and RTL rules. Follow them in every change.
-- **`docs/`** – Project documentation (product overview, data strategy, architecture, development, samples guide). Keep docs in English and update them when adding features, data files, or export/import behavior.
+- **`docs/`** – Project documentation (product overview, business context, data strategy, architecture, development, samples guide). Keep docs in English and update them when adding features, data files, or export/import behavior.
 - **`samples/`** – Reference UI components and sections (marketing, ecommerce, application-ui). Use for typography, layout, and component structure; adapt to TypeScript and RTL.
 
 ## Stack
