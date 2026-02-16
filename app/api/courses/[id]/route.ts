@@ -24,7 +24,7 @@ const TIME_REGEX = /^([01]?\d|2[0-3]):([0-5]\d)$/;
 function optionalSelectedDates(v: unknown): string[] | undefined {
   if (v == null || !Array.isArray(v)) return undefined;
   const arr = v.filter((x) => typeof x === "string" && JALALI_DATE_REGEX.test(x));
-  return arr;
+  return arr.length > 0 ? arr : undefined;
 }
 function optionalSessionTimes(v: unknown): Record<string, string> | undefined {
   if (v == null || typeof v !== "object" || Array.isArray(v)) return undefined;
